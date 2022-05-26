@@ -1,5 +1,5 @@
-# born2beroot
-born2beroot projesi için kullanılabilecek kaynaklar.
+# Born2beRoot
+Born2beRoot projesi için kullanılabilecek kaynaklar.
 
 # Evaulation Soruları
 
