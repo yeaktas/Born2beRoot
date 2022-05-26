@@ -119,7 +119,7 @@ Tabii ki konuda belirtildiği gibi "root" kullanıcısı ile SSH kullanamayacağ
 
 Bir şey beklendiği gibi çalışmıyorsa veya net bir şekilde açıklanmıyorsa değerlendirme burada durur.
 
-## Script monitoring
+## Script monitoring
 
 Unutmayın: Bir şeyi kontrol etmek için yardıma ihtiyacın olduğunda, değerlendirilen öğrenci
 sana yardım edebilmelidir.
@@ -139,4 +139,5 @@ Bir şey beklendiği gibi çalışmıyorsa veya net bir şekilde açıklanmıyor
 # Kaynaklar
 
 https://www.youtube.com/watch?v=0eTfvCXUv0A
+
 https://www.debian.org.tr/Debian_Manifesto
