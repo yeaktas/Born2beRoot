@@ -1,6 +1,58 @@
 # Born2beRoot
 Born2beRoot projesi için kullanılabilecek kaynaklar.
 
+LVM - Logical volume manager
+
+apt: paket yükleyici
+aptitude: paket yükleyicisini grafik ormanında kullanılabiliyor ve aptye göre daha gelişmiş.
+
+
+Roota geçiş yapmak için: 
+```
+su -
+```
+
+sudo yüklemek için:
+
+```
+$ apt-get update -y
+$ apt-get upgrade -y
+$ apt install sudo
+```
+
+sudo groubuna kullanıcı ekleme:
+
+```
+$ su -
+$ usermod -aG sudo your_username
+```
+
+Kullanıcının sudo grubunda olduğunu kontrol etme:
+
+```
+$ getent group sudo
+```
+
+Give privilege as a su.
+
+Open sudoers file:
+
+```
+$ sudo visudo
+```
+
+Add this line in file:
+
+```
+your_username    ALL=(ALL) ALL
+```
+#
+
+Installing Vim
+```
+$ sudo apt-get install vim
+```
+
 # Evaulation Soruları
 
 ## General instructions(Genel Talimatlar)
