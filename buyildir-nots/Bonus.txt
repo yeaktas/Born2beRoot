@@ -1,0 +1,54 @@
+sudo apt install lighttpd		--> NGNIX ve APACHE Harici alternatif bir http sunucusudur.
+sudo ufw allow 80				--> 80 Portu HTTP için standart port
+sudo apt install mariadb-server	--> Mariadb ilişkisel veritabanıdır. MySQL Databse Serverin kaynak kodundan türemiştir.
+sudo mysql_secure_installation	--> Varsayılan ve güvenli olmayan ayarları yapılandırmak için...
+	@-)İlk adımda parola soracak enter diyip atlanır.
+	@-)Switch to unix seçeneği = N
+	@-)Change the root password = N
+	@-)Remove anonymous users = Y
+	@-)Disallow root login remotely = Y
+	@-)Remove test database and access to it = Y
+	@-)Reload privilege tables now = Y
+sudo mariadb					--> Mariadb consoluna girilir.
+CREATE DATABASE veritabanı_adı	--> Yeni bir veritabanı oluşturulur.
+GRANT ALL ON veritabanı_adı.* TO 'veritabanı_kullanıcısı'@'localhost' IDENTIFIED BY 'veritabanı_kullanıcısı_şifresi' WITH GRANT OPTION;	--> Burda şunları yaptık...
+	-Yeni bir veri tabanı kullanıcısı oluşturduk ve bunun local ağda olacağını belirttik ve bu kullanımıza bir şifre belirledik NOT: Burada ki kullanıcıyı sistemde ki kullanıcılar ile karıştırmayın!
+	-Yeni oluşturduğumuz bu kullanıcıya yeni oluşturduğumuz veri tabanına tam yetki vermesini söylüyoruz.
+FLUSH PRIVILEGES;				--> Diyerek yaptığımız değişiklikleri okutuyoruz
+exit							--> Mariadb konsolundan çıkış yapıyoruz.
+mariadb -u veritabanı_kullanıcısı -p	--> Veri tabanına oluşturduğumuz kullanıcıdan bağlanmayı deneyeceğiz. Bunu yazdıktan sonra bizden şifre isteyecek şifre belirlemiş olduğumuz veritabanı_kullanıcısı_şifresi.
+SHOW DATABASES;							--> Veri tabanlarını gösteriri. 2 Tane veri tabanı olması lazım biri oluşturduğumuz diğeri information_schema
+exit							--> Çıkış!
+sudo apt install php-cgi php-mysql		--> ORTAK AĞ GEÇİDİ ARAYÜZÜ - 
+	-php-cgi (common gateway interface) web serverinin apache, lighttpd vs. harici uygulamalarla PHP, PYTHON, PERL dillerinin yorumlayıcılarıyla iletişim kurmasını sağlayan web teknolojisidir.
+	-Wordpress PHP ile geliştirildiği için bu eklentileri kuruyoruz.
+sudo apt install wget					--> Bu eklentiyi HTTP HTTPS VE FTP üzerinden indirme işlemleri almak için kuruyoruz. Bir sonraki işlemde Wordpress'in kendi sitesinden verileri çekeceğiz.
+sudo wget http://wordpress.org/latest.tar.gz -P /var/www/html		--> Belirtilen dizine (yoksa kendisi oluşturur) wordpress'in en son çıkan panelini indiriyoruz.
+sudo tar -xzvf /var/www/html/latest.tar.gz							--> İndirdiğimiz tar.gz uzantılı klasörden dosyaları çıkarıyoruz.
+sudo rm /var/www/html/latest.tar.gz									--> Dosyaları çıkardıktan sonra indirdiğimiz arşiv dosyasını siliyoruz.
+sudo cp -r /var/www/html/wordpress/* /var/www/html					--> Arşivden çıkan klasörün ismi wordpress bu komut ile wordpress dosyasının içinde ki tüm verileri belirtilen yola kopyalıyoruz.
+sudo rm -rf /var/www/html/wordpress									--> Klasörün içeriğini kopyaladıktan sonra klasörle de işimiz kalmadığı için klasörü de siliyoruz.
+sudo cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php	--> wp-config-sample dosyasını wp-config adıyla kopyalıyoruz.
+sudo nano /var/www/html/wp-config.php										--> kopyalanan dosyayı nano ile açıyoruz ve şu kısımları editliyoruz...
+	-define( 'DB_NAME', 'veritabanı_adı' );^M
+	-define( 'DB_USER', 'veritabanı_kullanıcısı' );^M
+	-define( 'DB_PASSWORD', 'veritabanı_kullanıcısı_şifresi' );^M
+@@sudo lighty-enable-mod fastcgi---------
+@@sudo lighty-enable-mod fastcgi-php------> fastcgi modülünü ve php yapılandırmasını şu şekilde etkinleştirin
+@sudo service lighttpd force-reload------> lighttpd sunucusunu yeniden başlatıyoruz
+sudo apt install vsftpd		--> FTP sunucusu için gerekli paket.
+sudo ufw allow 21			--> Güvenlik duvarından 21 portu için TCP UDP iznini veriyoruz.
+sudo nano /etc/vsftpd.conf	-->
+	@-)#write_enable=YES	// # kaldırılır ftp komutlarını yazmak için 
+	@-)user_sub_token=$USER
+	@-)local_root=/home/$USER/ftp
+	@-)userlist_enable=YES
+	@-)userlist_file=/etc/vsftpd.userlist
+	@-)userlist_deny=NO
+sudo mkdir /home/kullanıcı_adı/ftp 	--> Kullanıcımızın bulunduğu dizine ftp klasörü açtık.
+sudo mkdir /home/kullanıcı_adı/ftp/files	-->Files klasörü açtık
+sudo chown nobody:nogroup /home/<username>/ftp	--> ftp klasörünün sahipliğini ve grubunu hiç kimse olarak ayarlıyoruz.
+sudo chmod a-w /home/<username>/ftp		--> Tüm kullanıcılara yazma iznini verdik.
+sudo nano /etc/vsftpd.userlist			--> CTRL + O Yapıp sonrasında CTRL + X Yapıp kaydedip çıkıyoruz. Amacı izin verilen kullanıcılar ile bağlanmamızı sağlar.
+echo kullanıcı_adı | sudo tee -a /etc/vsftpd.userlist 	--> İle kullanıcımızı userlist içerisine ekliyoruz.
+

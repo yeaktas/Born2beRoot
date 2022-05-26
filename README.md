@@ -75,7 +75,7 @@ Değerlendirilen öğrenci, LVM'nin nasıl çalıştığı ve neyle ilgili oldu�
 
 Bir şey beklendiği gibi çalışmıyorsa veya net bir şekilde açıklanmıyorsa, değerlendirme burada durur.
 
-## SUDO
+## SUDO
 
 Unutmayın: Bir şeyi kontrol etmek için yardıma ihtiyacın olduğunda, değerlendirilen öğrenci
 sana yardım edebilmelidir.
@@ -134,3 +134,9 @@ Komut dosyasının dinamik değerlerle doğru şekilde çalıştığından emin 
 değiştirilmemiştir.
 
 Bir şey beklendiği gibi çalışmıyorsa veya net bir şekilde açıklanmıyorsa değerlendirme burada durur.
+
+
+# Kaynaklar
+
+https://www.youtube.com/watch?v=0eTfvCXUv0A
+https://www.debian.org.tr/Debian_Manifesto
