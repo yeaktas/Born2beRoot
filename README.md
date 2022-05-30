@@ -3,55 +3,17 @@ Born2beRoot projesi için kullanılabilecek kaynaklar.
 
 LVM - Logical volume manager
 
-apt: paket yükleyici
-aptitude: paket yükleyicisini grafik ormanında kullanılabiliyor ve aptye göre daha gelişmiş.
+# Evaultaion Defans
+
+CentOS Red Hat topluluğu tarafından destekleniyor. Debian bireyler tarafından destekleniyor.
+
+CentOS, kullanıcı dostu yapısı nedeniyle geniş bir pazara sahiptir. Debian, terminal son kullanımı nedeniyle pazar varlığından yoksun.
+
+CentOS çoklu mimari desteği ile gelmiyor. Debian, diğer dağıtımlara kıyasla çoklu mimari desteğine sahiptir.
+
+Yeni yükseltmeler genellikle zaman alır, bu nedenle onu kararlı hale getirir. 2 yıllık bir sürüm döngüsüne sahiptir, bu nedenle hataları düzeltmek için yeterli zaman sağlar.
 
 
-Roota geçiş yapmak için: 
-```
-su -
-```
-
-sudo yüklemek için:
-
-```
-$ apt-get update -y
-$ apt-get upgrade -y
-$ apt install sudo
-```
-
-sudo groubuna kullanıcı ekleme:
-
-```
-$ su -
-$ usermod -aG sudo your_username
-```
-
-Kullanıcının sudo grubunda olduğunu kontrol etme:
-
-```
-$ getent group sudo
-```
-
-Give privilege as a su.
-
-Open sudoers file:
-
-```
-$ sudo visudo
-```
-
-Add this line in file:
-
-```
-your_username    ALL=(ALL) ALL
-```
-#
-
-Installing Vim
-```
-$ sudo apt-get install vim
-```
 
 # Evaulation Soruları
 
