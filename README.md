@@ -3,6 +3,7 @@ Born2beRoot projesi için kullanılabilecek kaynaklar.
 
 # Evaultaion Defans
 
+## Project overview(Projeye genel bakış)
 
 | CentOS | Debian |
 | :---: | :---: |
@@ -13,6 +14,8 @@ Born2beRoot projesi için kullanılabilecek kaynaklar.
 | Eski sürümü yükseltmek yerine yeni bir Centos sürümü yüklemek daha iyidir. | Debian, bir kararlı sürümden diğerine kolayca yükseltilebilir. |
 | CentOS'un karmaşık bir GUI'si var. | Debian kullanıcı dostu uygulamalar ve GUI ile geliyor. |
 | CentOS, paket yöneticisi olarak YUM'u kullanıyor. | Debian, paket yükleyicisi olarak apt-get kullanıyor. |
+
+## Simple setup(Basit kurulum)
 
 ### Ufw kontrol
 ```
@@ -26,6 +29,8 @@ sudo service ssh status
 ```
 uname -a
 ```
+## User(Kullanıcı)
+
 ### Kullanıcı gruplarını kontrol etme
 ```
 sudo groups <kullanıcı adı>
@@ -55,9 +60,14 @@ sudo groupadd <grup adı>
 ```
 sudo adduser <kullanıcı adı> <grup adı>
 ```
+
+## Hostname and partitions(Ana bilgisayar ve bölümler)
+
 ### 
 ```
+
 ```
+
 
 # Evaulation Soruları
 
@@ -68,7 +78,7 @@ sudo adduser <kullanıcı adı> <grup adı>
 
 ## Mandatory part(Zorunlu kısım)
 
-### Project overview(Projeye genel bakış)
+## Project overview(Projeye genel bakış)
 
 Değerlendirilen öğrenci size basitçe şunları açıklamalıdır:
 
