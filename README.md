@@ -1,19 +1,63 @@
 # Born2beRoot
 Born2beRoot projesi için kullanılabilecek kaynaklar.
 
-LVM - Logical volume manager
-
 # Evaultaion Defans
 
-CentOS Red Hat topluluğu tarafından destekleniyor. Debian bireyler tarafından destekleniyor.
 
-CentOS, kullanıcı dostu yapısı nedeniyle geniş bir pazara sahiptir. Debian, terminal son kullanımı nedeniyle pazar varlığından yoksun.
+| CentOS | Debian |
+| :---: | :---: |
+| CentOS Red Hat topluluğu tarafından destekleniyor. | Debian bireyler tarafından destekleniyor.|
+| CentOS, kullanıcı dostu yapısı nedeniyle geniş bir pazara sahiptir. | Debian, terminal son kullanımı nedeniyle pazar varlığından yoksun. |
+| CentOS çoklu mimari desteği ile gelmiyor. | Debian, diğer dağıtımlara kıyasla çoklu mimari desteğine sahiptir. |
+|Yeni yükseltmeler genellikle zaman alır, bu nedenle onu kararlı hale getirir. | 2 yıllık bir sürüm döngüsüne sahiptir, bu nedenle hataları düzeltmek için yeterli zaman sağlar. |
+| Eski sürümü yükseltmek yerine yeni bir Centos sürümü yüklemek daha iyidir. | Debian, bir kararlı sürümden diğerine kolayca yükseltilebilir. |
+| CentOS'un karmaşık bir GUI'si var. | Debian kullanıcı dostu uygulamalar ve GUI ile geliyor. |
+| CentOS, paket yöneticisi olarak YUM'u kullanıyor. | Debian, paket yükleyicisi olarak apt-get kullanıyor. |
 
-CentOS çoklu mimari desteği ile gelmiyor. Debian, diğer dağıtımlara kıyasla çoklu mimari desteğine sahiptir.
+### Ufw kontrol
+```
+ufw status
+```
+### SSH kontrol
+```
+sudo service ssh status
+```
+### İşletim sistemi kontrol
+```
+uname -a
+```
+### Kullanıcı gruplarını kontrol etme
+```
+sudo groups <kullanıcı adı>
+```
+### Yeni kullanıcı ekleme
+```
+sudo adduser <yeni kullanıcı adı>
+```
+### Kullanıcıları listeleme
+```
+less /etc/passwd
+```
+Daha okunabilir olması için
+```
+cut -d: -f1 /etc/passwd
+```
 
-Yeni yükseltmeler genellikle zaman alır, bu nedenle onu kararlı hale getirir. 2 yıllık bir sürüm döngüsüne sahiptir, bu nedenle hataları düzeltmek için yeterli zaman sağlar.
-
-
+### Şifreleme politikaları düzenleme
+```
+sudo vim /etc/pam.d/common-password
+```
+### Grup oluşturma
+```
+sudo groupadd <grup adı>
+```
+### Gruba kullanıcı ekleme
+```
+sudo adduser <kullanıcı adı> <grup adı>
+```
+### 
+```
+```
 
 # Evaulation Soruları
 
