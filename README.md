@@ -17,29 +17,29 @@ Born2beRoot projesi için kullanılabilecek kaynaklar.
 
 ## Simple setup(Basit kurulum)
 
-### Ufw kontrol
+Ufw kontrol
 ```
 ufw status
 ```
-### SSH kontrol
+SSH kontrol
 ```
 sudo service ssh status
 ```
-### İşletim sistemi kontrol
+İşletim sistemi kontrol
 ```
 uname -a
 ```
 ## User(Kullanıcı)
 
-### Kullanıcı gruplarını kontrol etme
+Kullanıcı gruplarını kontrol etme
 ```
 sudo groups <kullanıcı adı>
 ```
-### Yeni kullanıcı ekleme
+Yeni kullanıcı ekleme
 ```
 sudo adduser <yeni kullanıcı adı>
 ```
-### Kullanıcıları listeleme
+Kullanıcıları listeleme
 ```
 less /etc/passwd
 ```
@@ -47,27 +47,78 @@ Daha okunabilir olması için
 ```
 cut -d: -f1 /etc/passwd
 ```
-
-### Şifreleme politikaları düzenleme
+Şifreleme politikaları düzenleme
 ```
 sudo vim /etc/pam.d/common-password
 ```
-### Grup oluşturma
+Grup oluşturma
 ```
 sudo groupadd <grup adı>
 ```
-### Gruba kullanıcı ekleme
+Gruba kullanıcı ekleme
 ```
 sudo adduser <kullanıcı adı> <grup adı>
 ```
-
 ## Hostname and partitions(Ana bilgisayar ve bölümler)
-
-### 
+Makine adı kontrol
+```
+hostnamectl
+```
+Makine adı değiştirme
+```
+hostnamectl set-hostname <yeni makine adı>
+sudo reboot
+```
+Bölümleri listeleme
+```
+lsblk
+```
+## SUDO
+Sudo kontolü
+```
+sudo --version
+```
+Yeni kullanıcıyı sudo grubuna ekleme
+```
+sudo adduser <yeni kullanici adi> sudo
+```
+/var/log/sudo klasöründeki dosya kontrolü
+```
+cd /var/log/sudo
+```
+## UFW
+UFW kontrolü
+```
+sudo ufw status numbered
+```
+Yeni bağlantı noktası ekleme
+```
+sudo ufw allow <port numarası>
+```
+Bağlantı noktasını silme
+```
+sudo ufw status numbered
+sudo ufw delete <silmek istediğin port numarası>
+```
+## SSH
+SSH kontrolü
+```
+sudo service ssh status
+```
+Yeni oluşturulan kullanıcı ile ssh kullanma
+```
+<yeni kullanıcı adı>@localhost -p 4242
 ```
 
+## Script monitoring
+Monitoring.sh dosyasını açmak için
 ```
-
+sudo vim /usr/local/bin/monitoring.sh
+```
+Crontab ayarlarını görüntülemek için
+```
+sudo crontab -u root -e
+```
 
 # Evaulation Soruları
 
@@ -198,8 +249,7 @@ Değerlendirilen öğrenci size basitçe şunları açıklamalıdır:
 * Değerlendirilen öğrencinin senaryosunu sunucunun başladığı andan itibaren her 10 dakikada bir çalışacak şekilde nasıl kurduğu.
 Senaryonun doğru işleyişi doğrulandıktan sonra, öğrenci değerlendirilmelidir.
 Bu betiğin her dakika çalışmasını sağlamalıdır. 
-Komut dosyasının dinamik değerlerle doğru şekilde çalıştığından emin olmak için ne istersen çalıştırabilirsin. *** Son olarak, değerlendirilen öğrenci sunucu başlatıldığında komut dosyasının çalışmasını durdurmalı, ancak betiğin kendisini değiştirme. *** Bu noktayı kontrol etmek için yeniden başlatmanız gerekecek sunucuya son bir kez Başlangıçta, komut dosyasının kontrol edilmesi gerekecektir. hala aynı yerde var olduğunu, haklarının değişmediğini ve
-değiştirilmemiştir.
+Komut dosyasının dinamik değerlerle doğru şekilde çalıştığından emin olmak için ne istersen çalıştırabilirsin. Son olarak, değerlendirilen öğrenci sunucu başlatıldığında komut dosyasının çalışmasını durdurmalı, ancak betiğin kendisini değiştirmemelidir. Bu noktayı kontrol etmek için sunucuyu son bir kez yeniden başlatmanız gerekecek, başlangıçta komut dosyasının kontrol edilmesi gerekecektir. Hala aynı yerde var olduğunu, değiştirilmediğini kontrol etmeniz gerekcektir.
 
 Bir şey beklendiği gibi çalışmıyorsa veya net bir şekilde açıklanmıyorsa değerlendirme burada durur.
 
