@@ -1,7 +1,7 @@
 # Born2beRoot
 Born2beRoot projesi için kullanılabilecek kaynaklar.
 
-# Evaultaion Defans
+# Evaultaion Defans Adımları
 
 ## Project overview(Projeye genel bakış)
 
