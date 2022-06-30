@@ -19,7 +19,7 @@ Born2beRoot projesi için kullanılabilecek kaynaklar.
 
 Ufw kontrol
 ```
-ufw status
+sudo ufw status
 ```
 SSH kontrol
 ```
