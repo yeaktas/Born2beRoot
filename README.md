@@ -256,6 +256,8 @@ Bir şey beklendiği gibi çalışmıyorsa veya net bir şekilde açıklanmıyor
 
 # Kaynaklar
 
+https://baigal.medium.com/born2beroot-e6e26dfb50ac
+
 https://www.youtube.com/watch?v=0eTfvCXUv0A
 
 https://www.debian.org.tr/Debian_Manifesto
